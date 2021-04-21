@@ -36,6 +36,10 @@ namespace BackToTheFutureV
         public static bool GlowingWormholeEmitter { get; set; } = true;
         public static bool GlowingPlutoniumReactor { get; set; } = true;
         public static bool InfiniteFuel { get; set; }
+
+        public static bool debugFuel { get; set; }
+
+        public static bool debugRange { get; set; }
         public static bool LightningStrikeEvent { get; set; } = true;
         public static bool EngineStallEvent { get; set; } = true;
         public static bool TurbulenceEvent { get; set; } = true;

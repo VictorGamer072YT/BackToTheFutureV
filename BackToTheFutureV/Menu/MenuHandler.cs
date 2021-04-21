@@ -11,6 +11,8 @@ namespace BackToTheFutureV
         public static SoundsSettingsMenu SoundsSettingsMenu { get; } = new SoundsSettingsMenu();
         public static EventsSettingsMenu EventsSettingsMenu { get; } = new EventsSettingsMenu();
         public static TCDMenu TCDMenu { get; } = new TCDMenu();
+
+        public static DEBUGMenu DEBUGMenu { get; } = new DEBUGMenu();
         public static SettingsMenu SettingsMenu { get; } = new SettingsMenu();
         public static RCMenu RCMenu { get; } = new RCMenu();
         public static PhotoMenu PhotoMenu { get; } = new PhotoMenu();

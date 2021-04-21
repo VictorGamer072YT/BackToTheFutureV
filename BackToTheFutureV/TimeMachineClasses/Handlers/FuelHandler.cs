@@ -276,6 +276,9 @@ namespace BackToTheFutureV
             if (ModSettings.InfiniteFuel)
                 return true;
 
+            if (ModSettings.debugFuel)
+                return true;
+
             if (Mods.Reactor == ReactorType.Nuclear && InternalInventory.Current.Plutonium > 0)
                 return true;
 

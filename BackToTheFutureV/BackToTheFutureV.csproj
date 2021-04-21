@@ -154,6 +154,7 @@
     <Compile Include="Menu\TrainMissionMenu.cs" />
     <Compile Include="Menu\PresetsMenu.cs" />
     <Compile Include="Menu\TCDMenu.cs" />
+	<Compile Include="Menu\DEBUGMenu.cs" />
     <Compile Include="Menu\MainMenu.cs" />
     <Compile Include="Menu\MenuHandler.cs" />
     <Compile Include="Menu\PhotoMenu.cs" />

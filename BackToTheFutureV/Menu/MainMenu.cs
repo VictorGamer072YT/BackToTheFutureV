@@ -18,6 +18,7 @@ namespace BackToTheFutureV
 
         private NativeSubmenuItem rcMenu;
         private NativeSubmenuItem outatimeMenu;
+        private NativeSubmenuItem DEBUGMenu;
 
         private NativeItem deleteCurrent;
         private NativeItem deleteOthers;
@@ -45,6 +46,8 @@ namespace BackToTheFutureV
             deleteAll = NewItem("RemoveAll");
 
             NewSubmenu(MenuHandler.SettingsMenu, "Settings");
+
+            NewSubmenu(MenuHandler.DEBUGMenu, "DEBUG");
         }
 
         private void SpawnBTTF_ItemChanged(object sender, ItemChangedEventArgs<string> e)
