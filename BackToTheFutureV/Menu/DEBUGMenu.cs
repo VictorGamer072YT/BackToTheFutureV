@@ -14,10 +14,10 @@ namespace BackToTheFutureV
             return $"{itemName}";
         }
 
-       /* public override string pidorrodip(string InternalName)
+        public override string GetMenuTitle()
         {
             return "Debug Settings";
-        }*/
+        }
 
         public DEBUGMenu() : base("DEBUG")
         {
