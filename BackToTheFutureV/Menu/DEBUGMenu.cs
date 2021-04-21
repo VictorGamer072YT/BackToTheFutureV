@@ -18,12 +18,12 @@ namespace BackToTheFutureV
 
         public override void Menu_OnItemCheckboxChanged(NativeCheckboxItem sender, EventArgs e, bool Checked)
         {
-            if (sender == debugFuel)
-                ModSettings.debugFuel = Checked;
-
+            if (sender == debugFuel)             
+                ModSettings.debugFuel = Checked; 
+           
             if (sender == debugRange)
                 ModSettings.debugRange = Checked;
-
+           
             ModSettings.SaveSettings();
         }
 
