@@ -99,12 +99,12 @@ namespace BackToTheFutureV
                 return;
 
             float squareDist = RemoteControlling.OriginalPed.DistanceToSquared2D(RemoteControlling.Vehicle);
-            
+
             if (ModSettings.debugRange)
                 squareDist = 100.0f;
-                    
-                //float squareDist = RemoteControlling.OriginalPed.DistanceToSquared2D(RemoteControlling.Vehicle);
-            
+
+            //float squareDist = RemoteControlling.OriginalPed.DistanceToSquared2D(RemoteControlling.Vehicle);
+
 
 
             if (squareDist > MAX_DIST * MAX_DIST)

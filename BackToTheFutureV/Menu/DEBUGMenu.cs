@@ -1,7 +1,6 @@
 ﻿using LemonUI.Menus;
 using System;
 using System.ComponentModel;
-using static BackToTheFutureV.InternalEnums;
 
 namespace BackToTheFutureV
 {
@@ -18,18 +17,18 @@ namespace BackToTheFutureV
 
         public override void Menu_OnItemCheckboxChanged(NativeCheckboxItem sender, EventArgs e, bool Checked)
         {
-            if (sender == debugFuel)             
-                ModSettings.debugFuel = Checked; 
-           
+            if (sender == debugFuel)
+                ModSettings.debugFuel = Checked;
+
             if (sender == debugRange)
                 ModSettings.debugRange = Checked;
-           
+
             ModSettings.SaveSettings();
         }
 
         public override void Menu_OnItemActivated(NativeItem sender, EventArgs e)
         {
-   
+
         }
 
         public override void Menu_Shown(object sender, EventArgs e)
