@@ -9,10 +9,22 @@ namespace BackToTheFutureV
         private NativeCheckboxItem debugFuel;
         private NativeCheckboxItem debugRange;
 
+        public override string GetItemTitle(string itemName)
+        {
+            return $"{itemName}";
+        }
+
+       /* public override string pidorrodip(string InternalName)
+        {
+            return "Debug Settings";
+        }*/
+
         public DEBUGMenu() : base("DEBUG")
         {
-            debugFuel = NewCheckboxItem("debugFuel", ModSettings.debugFuel);
-            debugRange = NewCheckboxItem("debugRange", ModSettings.debugRange);
+            //debugFuel  = NewCheckboxItem("debugFuel", ModSettings.debugFuel);
+            //debugRange = NewCheckboxItem("debugRange", ModSettings.debugRange);
+            debugRange = NewCheckboxItem("Infinite RC Range", ModSettings.debugRange);
+            debugFuel = NewCheckboxItem("Infinite Fuel", ModSettings.debugFuel);
         }
 
         public override void Menu_OnItemCheckboxChanged(NativeCheckboxItem sender, EventArgs e, bool Checked)

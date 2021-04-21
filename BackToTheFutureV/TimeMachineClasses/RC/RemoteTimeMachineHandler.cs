@@ -94,7 +94,6 @@ namespace BackToTheFutureV
         public static void Tick()
         {
             RemoteTimeMachines.ForEach(x => x.Tick());
-            //float squareDist;
             if (!IsRemoteOn)
                 return;
 
@@ -102,10 +101,6 @@ namespace BackToTheFutureV
 
             if (ModSettings.debugRange)
                 squareDist = 100.0f;
-
-            //float squareDist = RemoteControlling.OriginalPed.DistanceToSquared2D(RemoteControlling.Vehicle);
-
-
 
             if (squareDist > MAX_DIST * MAX_DIST)
             {
