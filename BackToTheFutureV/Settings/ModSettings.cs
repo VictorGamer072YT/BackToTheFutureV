@@ -170,6 +170,10 @@ namespace BackToTheFutureV
             settings.SetValue("Events", "Turbulence", TurbulenceEvent);
             settings.SetValue("Events", "Terrorists", TerroristsEvent);
 
+            debugFuel = settings.GetValue("DEBUG", "debugFuel", debugFuel);
+            debugRange = settings.GetValue("DEBUG", "debugRange", debugRange);
+            debugTimeTravel = settings.GetValue("DEBUG", "debugTimeTravel", debugTimeTravel);
+
             settings.Save();
 
             ModControls.SaveControls(settings);
