@@ -74,16 +74,21 @@ namespace BackToTheFutureV
             TimeCircuitsOnDescription.Checked = CurrentTimeMachine.Properties.AreTimeCircuitsOn;
             DestinationTimeDescription.Title = $"{GetItemTitle("Destination")} {CurrentTimeMachine.Properties.DestinationTime.ToString("MM/dd/yyyy hh:mm tt")}";
 
+            float maxDistance = RemoteTimeMachineHandler.MAX_DIST;
+            if (ModSettings.debugRange)
+            { 
+                PreviewCar();
+                return true;
+            }
+            else 
             if (FusionUtils.PlayerPed.DistanceToSquared2D(CurrentTimeMachine, RemoteTimeMachineHandler.MAX_DIST) && CurrentTimeMachine.Vehicle.Driver == null)
             {
                 PreviewCar();
-
                 return true;
             }
             else
             {
                 StopPreviewing();
-
                 TextHandler.ShowNotification("UnableRC");
                 return false;
             }
