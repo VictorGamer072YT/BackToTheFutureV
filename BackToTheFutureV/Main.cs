@@ -23,6 +23,8 @@ namespace BackToTheFutureV
 
             System.IO.File.AppendAllText($"./ScriptHookVDotNet.log", $"BackToTheFutureV - {Version} ({buildDate})" + Environment.NewLine);
 
+            GTA.UI.Screen.ShowSubtitle($"BackToTheFutureV - {Version} ({buildDate})");
+
             ModSettings.LoadSettings();
 
             Tick += Main_Tick;
