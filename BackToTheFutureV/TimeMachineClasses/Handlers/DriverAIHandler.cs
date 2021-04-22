@@ -57,11 +57,13 @@ namespace BackToTheFutureV
         private void TaskTimeTravel()
         {
             GTA.UI.Screen.ShowSubtitle($"{Step}");
-
+            bool isFueled = TimeMachine.Properties.IsFueled;
+            if (ModSettings.debugFuel)
+                isFueled = true;
             switch (Step)
             {
                 case 0:
-                    if (!Properties.IsFueled)
+                    if (!isFueled)
                         DriverAI.Task.GoStraightTo(Vehicle.GetOffsetPosition(new Vector3(0, -2.5f, 0f)), -1, Vehicle.Heading);
                     else
                         Step = 3;
@@ -77,7 +79,7 @@ namespace BackToTheFutureV
                     Step++;
                     break;
                 case 2:
-                    if (!Properties.IsFueled)
+                    if (!isFueled)
                         break;
 
                     DriverAI.Task.EnterVehicle(Vehicle, VehicleSeat.Driver);

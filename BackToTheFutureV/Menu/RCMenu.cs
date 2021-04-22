@@ -67,7 +67,10 @@ namespace BackToTheFutureV
 
         private bool TrySelectCar()
         {
-            FuelChamberDescription.Checked = CurrentTimeMachine.Properties.IsFueled;
+            bool isFueled = CurrentTimeMachine.Properties.IsFueled;
+            if (ModSettings.debugFuel)
+                isFueled = true;
+            FuelChamberDescription.Checked = isFueled;
             TimeCircuitsOnDescription.Checked = CurrentTimeMachine.Properties.AreTimeCircuitsOn;
             DestinationTimeDescription.Title = $"{GetItemTitle("Destination")} {CurrentTimeMachine.Properties.DestinationTime.ToString("MM/dd/yyyy hh:mm tt")}";
 

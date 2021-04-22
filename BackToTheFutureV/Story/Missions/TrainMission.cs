@@ -411,7 +411,10 @@ namespace BackToTheFutureV
 
         private void TimeTravel_OnExecute(TimedEvent timedEvent)
         {
-            if (TimeMachine.Properties.IsFueled && TimeMachine.Properties.AreTimeCircuitsOn)
+            bool isFueled = TimeMachine.Properties.IsFueled;
+            if (ModSettings.debugFuel)
+                isFueled = true;
+            if (isFueled && TimeMachine.Properties.AreTimeCircuitsOn)
                 TimeMachine.Events.OnSparksEnded?.Invoke();
         }
 

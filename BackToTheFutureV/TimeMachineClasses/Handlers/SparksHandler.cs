@@ -32,7 +32,10 @@ namespace BackToTheFutureV
                 Function.Call(Hash.SPECIAL_ABILITY_DEACTIVATE_FAST, Game.Player);
                 Function.Call(Hash.ENABLE_SPECIAL_ABILITY, Game.Player, false);
 
-                if (Properties.IsFueled)
+                bool isFueled = TimeMachine.Properties.IsFueled;
+                if (ModSettings.debugFuel)
+                    isFueled = true;
+                if (isFueled)
                     DMC12?.SetVoltValue?.Invoke(100);
 
                 WaypointScript.LoadWaypointPosition(true);
@@ -88,7 +91,10 @@ namespace BackToTheFutureV
                 if (!FusionUtils.IsPadShaking && TimeMachineHandler.CurrentTimeMachine == TimeMachine)
                     FusionUtils.SetPadShake(Constants.WormholeLengthTime, 100);
 
-                if (Properties.IsFueled)
+                bool isFueled = TimeMachine.Properties.IsFueled;
+                if (ModSettings.debugFuel)
+                    isFueled = true;
+                if (isFueled)
                 {
                     if (!Players.Wormhole.IsPlaying)
                     {

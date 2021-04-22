@@ -142,7 +142,10 @@ namespace BackToTheFutureV
 
         private void StartFuelBlink()
         {
-            if (Properties.IsFueled)
+            bool isFueled = TimeMachine.Properties.IsFueled;
+            if (ModSettings.debugFuel)
+                isFueled = true;
+            if (isFueled)
                 return;
 
             _isBlinking = true;
@@ -162,11 +165,14 @@ namespace BackToTheFutureV
                 else
                     _refuelTime += Game.LastFrameTime;
             }
-
+            bool isFueled = TimeMachine.Properties.IsFueled;
+            if (ModSettings.debugFuel)
+                isFueled = true;
             // Pulsing animation while refueling for plutonium (bttf1) delorean
             if (Mods.Reactor == ReactorType.Nuclear && ModSettings.GlowingPlutoniumReactor)
             {
-                if (!Properties.IsFueled && Properties.ReactorState != ReactorState.Refueling)
+                
+                if (!isFueled && Properties.ReactorState != ReactorState.Refueling)
                 {
                     if (Mods.GlowingReactor == ModState.On)
                         Mods.GlowingReactor = ModState.Off;
@@ -198,7 +204,9 @@ namespace BackToTheFutureV
             // Empty animation
 
             // For BTTF1
-            if (_isBlinking && !Properties.IsFueled && Mods.Reactor == ReactorType.Nuclear)
+            if (ModSettings.debugFuel)
+                isFueled = true;
+            if (_isBlinking && !isFueled && Mods.Reactor == ReactorType.Nuclear)
             {
                 // Blink anim end
                 if (_blinks > TotalBlinks && Game.GameTime > _nextBlink)
@@ -236,7 +244,9 @@ namespace BackToTheFutureV
             // Not Fueled -> Glowing EMPTY indicator inside car and in GUI
             else
             {
-                if (Properties.IsFueled)
+                if (ModSettings.debugFuel)
+                    isFueled = true;
+                if (isFueled)
                 {
                     SetEmpty(false);
                     HideEmpty();

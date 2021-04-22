@@ -122,8 +122,10 @@ namespace BackToTheFutureV
 
             if (Game.GameTime < _nextCheck || !IsPlaying || !Vehicle.IsVisible)
                 return;
-
-            if (Vehicle.Speed == 0 && !Properties.IsEngineStalling && !Properties.IsFueled)
+            bool isFueled = TimeMachine.Properties.IsFueled;
+            if (ModSettings.debugFuel)
+                isFueled = true;
+            if (Vehicle.Speed == 0 && !Properties.IsEngineStalling && !isFueled)
             {
                 if (FusionUtils.Random.NextDouble() < 0.25)
                 {
