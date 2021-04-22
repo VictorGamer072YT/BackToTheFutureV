@@ -8,23 +8,13 @@ namespace BackToTheFutureV
     {
         private NativeCheckboxItem debugFuel;
         private NativeCheckboxItem debugRange;
-
-        public override string GetItemTitle(string itemName)
-        {
-            return $"{itemName}";
-        }
-
-        public override string GetMenuTitle()
-        {
-            return "Debug Settings";
-        }
+        private NativeCheckboxItem debugTimeTravel;
 
         public DEBUGMenu() : base("DEBUG")
         {
-            //debugFuel  = NewCheckboxItem("debugFuel", ModSettings.debugFuel);
-            //debugRange = NewCheckboxItem("debugRange", ModSettings.debugRange);
-            debugRange = NewCheckboxItem("Infinite RC Range", ModSettings.debugRange);
-            debugFuel = NewCheckboxItem("Infinite Fuel", ModSettings.debugFuel);
+            debugFuel  = NewCheckboxItem("debugFuel", ModSettings.debugFuel);
+            debugRange = NewCheckboxItem("debugRange", ModSettings.debugRange);
+            debugTimeTravel = NewCheckboxItem("debugTimeTravel", ModSettings.debugTimeTravel);
         }
 
         public override void Menu_OnItemCheckboxChanged(NativeCheckboxItem sender, EventArgs e, bool Checked)
@@ -34,6 +24,9 @@ namespace BackToTheFutureV
 
             if (sender == debugRange)
                 ModSettings.debugRange = Checked;
+
+            if (sender == debugTimeTravel)
+                ModSettings.debugTimeTravel = Checked;
 
             ModSettings.SaveSettings();
         }
