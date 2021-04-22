@@ -297,7 +297,6 @@
 	BTTFV_Text_Warmup = Press ~INPUT_CONTEXT~ to start time circuits control tubes warmup.
 	BTTFV_Text_WarmupComplete = Time circuits control tubes are warmed up.
 	BTTFV_Text_Years = years
-	<!-- ★ Debug Settings -->
 	BTTFV_Menu_DEBUG_Title = Debug Settings
 	BTTFV_Menu_DEBUG_Item_debugFuel_Title = Infinite Fuel
 	BTTFV_Menu_DEBUG_Item_debugRange_Title = Infinite RC Range
