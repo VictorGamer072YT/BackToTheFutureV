@@ -199,9 +199,6 @@ namespace BackToTheFutureV
 
             if (ForceNew || (FusionUtils.PlayerVehicle == null || !FusionUtils.PlayerVehicle.IsTimeMachine()))
             {
-                if (ForceNew)
-                    ForceNew = false;
-
                 if (ForceNew || FusionUtils.PlayerVehicle == null)
                     _tempTimeMachine = TimeMachineHandler.Create(SpawnFlags.WarpPlayer);
                 else
@@ -240,6 +237,7 @@ namespace BackToTheFutureV
             if (sender == _wormholeType | sender == _confirm)
             {
                 _save = true;
+                GarageHandler.WaitForCustomMenu = false;
                 Close();
             }
             else if (sender == _saveConf)

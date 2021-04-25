@@ -27,7 +27,7 @@ namespace BackToTheFutureV
             buyPlutonium = NewItem("BuyPlutonium");
             restoreCar = NewItem("Restore");
 
-            customMenu = NewSubmenu(MenuHandler.CustomMenu2, "Custom");
+            customMenu = NewSubmenu(MenuHandler.CustomMenuGarage, "Custom");
 
             customMenu.Activated += CustomMenu_Activated;
         }
@@ -52,7 +52,7 @@ namespace BackToTheFutureV
                     return;
                 }
 
-                TimeMachineHandler.Create(FusionUtils.PlayerVehicle);
+                TimeMachineHandler.Create(FusionUtils.PlayerVehicle).Properties.ReactorCharge = 0;
                 Game.Player.Money -= 500000;
             }
 
@@ -138,10 +138,10 @@ namespace BackToTheFutureV
 
             bool active = TimeMachineHandler.CurrentTimeMachine.NotNullAndExists();
 
-            transformInto.Enabled = !active;
-            hoverConvert.Enabled = active && TimeMachineHandler.CurrentTimeMachine.Mods.HoverUnderbody == ModState.Off && ((TimeMachineHandler.CurrentTimeMachine.Mods.IsDMC12 && !TimeMachineHandler.CurrentTimeMachine.Properties.AreFlyingCircuitsBroken) || TimeMachineHandler.CurrentTimeMachine.Vehicle.CanHoverTransform());
-            installMrFusion.Enabled = active && TimeMachineHandler.CurrentTimeMachine.Mods.Reactor == ReactorType.Nuclear && TimeMachineHandler.CurrentTimeMachine.Mods.IsDMC12;
-            restoreCar.Enabled = active && (TimeMachineHandler.CurrentTimeMachine.Constants.FullDamaged || TimeMachineHandler.CurrentTimeMachine.Properties.AreTimeCircuitsBroken);
+            transformInto.Enabled = !active && FusionUtils.CurrentTime >= new DateTime(1985, 10, 25);
+            hoverConvert.Enabled = active && FusionUtils.CurrentTime.Year >= 2015 && TimeMachineHandler.CurrentTimeMachine.Mods.HoverUnderbody == ModState.Off && ((TimeMachineHandler.CurrentTimeMachine.Mods.IsDMC12 && !TimeMachineHandler.CurrentTimeMachine.Properties.AreFlyingCircuitsBroken) || TimeMachineHandler.CurrentTimeMachine.Vehicle.CanHoverTransform());
+            installMrFusion.Enabled = active && FusionUtils.CurrentTime.Year >= 2015 && TimeMachineHandler.CurrentTimeMachine.Mods.Reactor == ReactorType.Nuclear && TimeMachineHandler.CurrentTimeMachine.Mods.IsDMC12;
+            restoreCar.Enabled = active && (TimeMachineHandler.CurrentTimeMachine.Constants.FullDamaged || (TimeMachineHandler.CurrentTimeMachine.Properties.AreTimeCircuitsBroken && TimeMachineHandler.CurrentTimeMachine.Mods.Hoodbox == ModState.Off));
 
             buyPlutonium.Enabled = InternalInventory.Current.Plutonium < 5;
             buyPlutonium.AltTitle = $"{InternalInventory.Current.Plutonium}/5";
