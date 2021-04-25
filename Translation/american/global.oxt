@@ -298,6 +298,7 @@
 	BTTFV_Text_WarmupComplete = Time circuits control tubes are warmed up.
 	BTTFV_Text_Years = years
 	BTTFV_Text_NotEnoughMoney = You don't have enough money!
+	BTTFV_Text_UnableRepair = Unable to repair time circuits. Suitable replacement parts will not be invented until 1947.
 	BTTFV_Menu_Garage_Title = Garage Menu
 	BTTFV_Menu_Garage_Item_Transform_Description = Transform current car into a Time Machine. Great Scott!
 	BTTFV_Menu_Garage_Item_Transform_Title = Transform into a Time Machine ($ 500,000)
