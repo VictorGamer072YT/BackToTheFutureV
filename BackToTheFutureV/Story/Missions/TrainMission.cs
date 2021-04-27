@@ -573,5 +573,10 @@ namespace BackToTheFutureV
         {
 
         }
+
+        public override void Abort()
+        {
+            End();
+        }
     }
 }
