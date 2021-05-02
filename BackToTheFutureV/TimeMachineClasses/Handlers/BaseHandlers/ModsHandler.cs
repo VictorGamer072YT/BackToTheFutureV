@@ -88,7 +88,7 @@ namespace BackToTheFutureV
             if (plateType != Plate)
                 Plate = plateType;
 
-            ExhaustType exhaustType = (ExhaustType)Vehicle.Mods[VehicleModType.Windows].Index;
+            ExhaustType exhaustType = (ExhaustType)Vehicle.Mods[VehicleModType.Exhaust].Index;
 
             if (exhaustType != Exhaust)
                 Exhaust = exhaustType;
