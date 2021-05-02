@@ -87,6 +87,8 @@ namespace BackToTheFutureV
                     ExternalHUD.Toggle(true);
 
                 ExternalHUD.SetOff();
+
+                DecoratorsHandler.Register();
             }
 
             if (ModSettings.ExternalTCDToggle != ExternalHUD.IsActive)
