@@ -207,6 +207,7 @@ namespace BackToTheFutureV
                 suspensionRightRear?.Delete();
             }
 
+            // This code actually  works for any door, so if you open the hood the indicator shows up, annoying! :ajajarage:
             if (FusionUtils.IsAnyOfFrontDoorsOpen(Vehicle))
                 doorIndicator.SpawnProp();
             else

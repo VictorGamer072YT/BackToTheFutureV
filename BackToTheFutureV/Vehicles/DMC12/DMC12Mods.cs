@@ -133,7 +133,7 @@ namespace BackToTheFutureV
                     //Steering wheel buttons
                     Vehicle.Mods[VehicleModType.SteeringWheels].Index = (int)value;
                     //Bulova clock
-                    Vehicle.Mods[VehicleModType.RightFender].Index = (int)value;
+                    //Vehicle.Mods[VehicleModType.RightFender].Index = (int)value;
                 }
             }
         }
