@@ -30,6 +30,12 @@ namespace BackToTheFutureV
                 //Seats
                 Vehicle.Mods[VehicleModType.VanityPlates].Index = 0;
 
+                // Debug hide Steering Wheel & Disable Radio
+                #if DEBUG
+                Vehicle.Mods[VehicleModType.SteeringWheels].Index = 1;
+                Vehicle.IsRadioEnabled = false;
+                #endif
+
                 if (!(WormholeType > WormholeType.DMC12))
                     WormholeType = WormholeType.DMC12;
 
