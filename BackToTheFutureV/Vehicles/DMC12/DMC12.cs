@@ -212,11 +212,16 @@ namespace BackToTheFutureV
             }
 
             // This code actually  works for any door, so if you open the hood the indicator shows up, annoying! :ajajarage:
-            if (FusionUtils.IsAnyOfFrontDoorsOpen(Vehicle)) { 
+            if (FusionUtils.IsAnyOfFrontDoorsOpen(Vehicle))
+            {
                 doorIndicator.SpawnProp();
-            seatbeltIndicator.SpawnProp(); }
+                seatbeltIndicator.SpawnProp();
+            }
             else
+            {
                 doorIndicator.Delete();
+                seatbeltIndicator.Delete();
+            }
         }
 
         public void Dispose(bool deleteVeh = true)
