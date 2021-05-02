@@ -14,6 +14,7 @@ namespace BackToTheFutureV
         public static CustomModel VoltageNeedle = new CustomModel("dmc12_voltage_needle");
         public static CustomModel DoorIndicator = new CustomModel("dmc12_door_indicator");
         public static CustomModel SeatbeltIndicator = new CustomModel("dmc12_seatbelt_indicator");
+        public static CustomModel FuelIndicator = new CustomModel("dmc12_fuel_indicator");
         public static CustomModel RadiatorFan = new CustomModel("dmc12_radiator_fan");
         public static CustomModel SuspensionFront = new CustomModel("suspension_lf_prop");
         public static CustomModel SuspensionRear = new CustomModel("suspension_lr_prop");

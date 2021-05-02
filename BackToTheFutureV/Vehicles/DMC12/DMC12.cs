@@ -25,7 +25,8 @@ namespace BackToTheFutureV
         private AnimateProp oilNeedle;
         private AnimateProp voltNeedle;
         private AnimateProp doorIndicator;
-        private AnimateProp seatbeltIndicator;
+        //private AnimateProp seatbeltIndicator;
+        private AnimateProp fuelIndicator;
         private AnimateProp leftFan;
         private AnimateProp rightFan;
 
@@ -67,7 +68,8 @@ namespace BackToTheFutureV
             oilNeedle = new AnimateProp(ModelHandler.OilNeedle, Vehicle, "oil_needle");
             voltNeedle = new AnimateProp(ModelHandler.VoltageNeedle, Vehicle, "voltage_needle");
             doorIndicator = new AnimateProp(ModelHandler.DoorIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
-            seatbeltIndicator = new AnimateProp(ModelHandler.SeatbeltIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
+            //seatbeltIndicator = new AnimateProp(ModelHandler.SeatbeltIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
+            fuelIndicator = new AnimateProp(ModelHandler.FuelIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
             leftFan = new AnimateProp(ModelHandler.RadiatorFan, Vehicle, "radiator_fan_l");
             rightFan = new AnimateProp(ModelHandler.RadiatorFan, Vehicle, "radiator_fan_r");
 
@@ -83,7 +85,8 @@ namespace BackToTheFutureV
             oilNeedle.SpawnProp();
             voltNeedle.SpawnProp();
             doorIndicator.SpawnProp();
-            seatbeltIndicator.SpawnProp();
+            //seatbeltIndicator.SpawnProp();
+            fuelIndicator.SpawnProp();
             leftFan.SpawnProp();
             rightFan.SpawnProp();
 
@@ -134,7 +137,8 @@ namespace BackToTheFutureV
                 oilNeedle.Delete();
                 voltNeedle.Delete();
                 doorIndicator.Delete();
-                seatbeltIndicator.Delete();
+                //seatbeltIndicator.Delete();
+                fuelIndicator.Delete();
                 leftFan.Delete();
                 rightFan.Delete();
 
@@ -215,12 +219,19 @@ namespace BackToTheFutureV
             if (FusionUtils.IsAnyOfFrontDoorsOpen(Vehicle))
             {
                 doorIndicator.SpawnProp();
-                seatbeltIndicator.SpawnProp();
             }
             else
             {
                 doorIndicator.Delete();
-                seatbeltIndicator.Delete();
+            }
+
+            if (fuelLevel <= 10)
+            {
+                fuelIndicator.SpawnProp();
+            }
+            else
+            {
+                fuelIndicator.Delete();
             }
         }
 
@@ -233,7 +244,8 @@ namespace BackToTheFutureV
             tempNeedle?.Dispose();
             voltNeedle?.Dispose();
             doorIndicator?.Dispose();
-            seatbeltIndicator?.Dispose();
+            //seatbeltIndicator?.Dispose();
+            fuelIndicator?.Dispose();
             leftFan?.Dispose();
             rightFan?.Dispose();
 
