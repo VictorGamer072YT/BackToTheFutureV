@@ -25,6 +25,7 @@ namespace BackToTheFutureV
         private AnimateProp oilNeedle;
         private AnimateProp voltNeedle;
         private AnimateProp doorIndicator;
+        private AnimateProp seatbeltIndicator;
         private AnimateProp leftFan;
         private AnimateProp rightFan;
 
@@ -66,6 +67,7 @@ namespace BackToTheFutureV
             oilNeedle = new AnimateProp(ModelHandler.OilNeedle, Vehicle, "oil_needle");
             voltNeedle = new AnimateProp(ModelHandler.VoltageNeedle, Vehicle, "voltage_needle");
             doorIndicator = new AnimateProp(ModelHandler.DoorIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
+            seatbeltIndicator = new AnimateProp(ModelHandler.SeatbeltIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
             leftFan = new AnimateProp(ModelHandler.RadiatorFan, Vehicle, "radiator_fan_l");
             rightFan = new AnimateProp(ModelHandler.RadiatorFan, Vehicle, "radiator_fan_r");
 
@@ -81,6 +83,7 @@ namespace BackToTheFutureV
             oilNeedle.SpawnProp();
             voltNeedle.SpawnProp();
             doorIndicator.SpawnProp();
+            seatbeltIndicator.SpawnProp();
             leftFan.SpawnProp();
             rightFan.SpawnProp();
 
@@ -131,6 +134,7 @@ namespace BackToTheFutureV
                 oilNeedle.Delete();
                 voltNeedle.Delete();
                 doorIndicator.Delete();
+                seatbeltIndicator.Delete();
                 leftFan.Delete();
                 rightFan.Delete();
 
@@ -208,8 +212,9 @@ namespace BackToTheFutureV
             }
 
             // This code actually  works for any door, so if you open the hood the indicator shows up, annoying! :ajajarage:
-            if (FusionUtils.IsAnyOfFrontDoorsOpen(Vehicle))
+            if (FusionUtils.IsAnyOfFrontDoorsOpen(Vehicle)) { 
                 doorIndicator.SpawnProp();
+            seatbeltIndicator.SpawnProp(); }
             else
                 doorIndicator.Delete();
         }
@@ -223,6 +228,7 @@ namespace BackToTheFutureV
             tempNeedle?.Dispose();
             voltNeedle?.Dispose();
             doorIndicator?.Dispose();
+            seatbeltIndicator?.Dispose();
             leftFan?.Dispose();
             rightFan?.Dispose();
 
