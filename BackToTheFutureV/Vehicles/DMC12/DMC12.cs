@@ -155,8 +155,8 @@ namespace BackToTheFutureV
                 float speed = Vehicle.GetMPHSpeed();
                 speedRotation = 270 * speed / 95 - 8;
 
-                if (speedRotation > 270)
-                    speedRotation = 270;
+                //if (speedRotation > 270)
+                //    speedRotation = 270;
 
                 fuelRotation = FusionUtils.Lerp(fuelRotation, -fuelLevel, Game.LastFrameTime);
                 tempRotation = FusionUtils.Lerp(tempRotation, tempLevel, Game.LastFrameTime);
