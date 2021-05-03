@@ -9,6 +9,7 @@ namespace BackToTheFutureV
     internal class DMC12Mods : ModsPrimitive
     {
         protected Vehicle Vehicle { get; }
+
         public DMC12Mods(Vehicle vehicle)
         {
             Vehicle = vehicle;
@@ -28,11 +29,12 @@ namespace BackToTheFutureV
 
                 //Seats
                 Vehicle.Mods[VehicleModType.VanityPlates].Index = 0;
-#if DEBUG
+
                 // Debug hide Steering Wheel & Disable Radio
+                #if DEBUG
                 Vehicle.Mods[VehicleModType.SteeringWheels].Index = 1;
                 Vehicle.IsRadioEnabled = false;
-#endif
+                #endif
 
                 if (!(WormholeType > WormholeType.DMC12))
                     WormholeType = WormholeType.DMC12;
@@ -40,13 +42,8 @@ namespace BackToTheFutureV
                 if ((SuspensionsType)Vehicle.Mods[VehicleModType.Hydraulics].Index == SuspensionsType.Unknown)
                     SuspensionsType = SuspensionsType.Stock;
 
-                // This is the function that Selects a random hood, I've adapted it to also select LAMBDA light on/off.
                 if ((WormholeType)Vehicle.Mods[VehicleModType.TrimDesign].Index <= WormholeType.DMC12)
-                {     
                     Hood = (HoodType)FusionUtils.Random.Next(-1, 2);
-                    LambdaType = (ModState)FusionUtils.Random.Next(0, 2);
-                }
-
             }
         }
 
@@ -311,19 +308,6 @@ namespace BackToTheFutureV
 
                 if (IsDMC12)
                     Vehicle.Mods[VehicleModType.Hood].Index = (int)value;
-            }
-        }
-
-
-        public new ModState LambdaType
-        {
-            get => base.LambdaType;
-            set
-            {
-                base.LambdaType = value;
-
-                if (IsDMC12)
-                    Vehicle.Mods[VehicleModType.Windows].Index = (int)value; // VMT_DOOR_L
             }
         }
     }

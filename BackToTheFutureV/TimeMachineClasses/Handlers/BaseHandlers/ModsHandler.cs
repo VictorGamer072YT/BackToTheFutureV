@@ -128,11 +128,6 @@ namespace BackToTheFutureV
             if (modState != Hoodbox)
                 Hoodbox = modState;
 
-            modState = (ModState)Vehicle.Mods[VehicleModType.Windows].Index;
-
-            if (modState != LambdaType)
-                LambdaType = modState;
-
             HookState hookState = HookState.Unknown;
 
             if (Vehicle.Mods[VehicleModType.Roof].Index == 1 && Vehicle.Mods[VehicleModType.ArchCover].Index == -1 && Vehicle.Mods[VehicleModType.Grille].Index == -1)
@@ -152,7 +147,6 @@ namespace BackToTheFutureV
 
             if (suspensionsType != SuspensionsType)
                 SuspensionsType = suspensionsType;
-
         }
 
         public new WheelType Wheel

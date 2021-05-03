@@ -5,9 +5,6 @@ using FusionLibrary.Memory;
 using GTA;
 using GTA.Math;
 using GTA.Native;
-using System.Windows.Forms;
-using System.Windows.Input;
-using static BackToTheFutureV.InternalEnums;
 
 namespace BackToTheFutureV
 {
@@ -39,9 +36,6 @@ namespace BackToTheFutureV
         private AnimateProp suspensionRightRear;
 
         private float voltLevel = 50f;
-
-        //public float lambdaLight = 0f;
-        //https://support.delorean.com/kb/a51/lambda-light.aspx on regarding what the LAMBDA light does.
 
         private float rpmRotation;
         private float speedRotation;
@@ -214,7 +208,7 @@ namespace BackToTheFutureV
                 }
             }
             else
-           {
+            {
                 suspensionLeftFront?.Delete();
                 suspensionLeftRear?.Delete();
                 suspensionRightFront?.Delete();
@@ -231,7 +225,6 @@ namespace BackToTheFutureV
                 doorIndicator.Delete();
             }
 
-            // HEL HEL HEL
             if (fuelLevel <= 10)
             {
                 fuelIndicator.SpawnProp();
@@ -240,18 +233,6 @@ namespace BackToTheFutureV
             {
                 fuelIndicator.Delete();
             }
-
-#if DEBUG
-            if (Mods.LambdaType == InternalEnums.ModState.On)
-            {
-                doorIndicator.SpawnProp();
-            }
-            else
-            {
-                doorIndicator.Delete();
-            }
-#endif
-
         }
 
         public void Dispose(bool deleteVeh = true)
