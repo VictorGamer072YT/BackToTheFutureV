@@ -27,6 +27,7 @@ namespace BackToTheFutureV
         private AnimateProp doorIndicator;
         //private AnimateProp seatbeltIndicator;
         private AnimateProp fuelIndicator;
+        private AnimateProp oilIndicator;
         private AnimateProp leftFan;
         private AnimateProp rightFan;
 
@@ -70,6 +71,7 @@ namespace BackToTheFutureV
             doorIndicator = new AnimateProp(ModelHandler.DoorIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
             //seatbeltIndicator = new AnimateProp(ModelHandler.SeatbeltIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
             fuelIndicator = new AnimateProp(ModelHandler.FuelIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
+            oilIndicator = new AnimateProp(ModelHandler.OilIndicator, Vehicle, Vector3.Zero, Vector3.Zero);
             leftFan = new AnimateProp(ModelHandler.RadiatorFan, Vehicle, "radiator_fan_l");
             rightFan = new AnimateProp(ModelHandler.RadiatorFan, Vehicle, "radiator_fan_r");
 
@@ -87,6 +89,7 @@ namespace BackToTheFutureV
             doorIndicator.SpawnProp();
             //seatbeltIndicator.SpawnProp();
             fuelIndicator.SpawnProp();
+            oilIndicator.SpawnProp();
             leftFan.SpawnProp();
             rightFan.SpawnProp();
 
@@ -139,6 +142,7 @@ namespace BackToTheFutureV
                 doorIndicator.Delete();
                 //seatbeltIndicator.Delete();
                 fuelIndicator.Delete();
+                oilIndicator.Delete();
                 leftFan.Delete();
                 rightFan.Delete();
 
@@ -233,6 +237,36 @@ namespace BackToTheFutureV
             {
                 fuelIndicator.Delete();
             }
+
+#if DEBUG
+            //Vehicle.CurrentRPM = 0.5f;
+            //Vehicle.FuelLevel = 5f; // = 7.6 liters ingame, just barely driveable.
+            //Vehicle.OilLevel = 0.1f; // = 2 ingame.
+            //Vehicle.CurrentGear = 1;
+            //Vehicle.ForwardSpeed = -5f;
+            //Vehicle.Speed = -5f;
+            //Vehicle.IsEngineRunning = true;
+            //Vehicle.IsDriveable = true;
+            GTA.UI.Screen.ShowSubtitle($"OilLevel is {oilLevel}," +
+            $" FuelLevel is {fuelLevel}," +
+            //$" Current RPM is {Vehicle.CurrentRPM}," +
+            $" Current Gear is {Vehicle.CurrentGear}," +
+            $" Are any doors are open {FusionUtils.IsAnyOfFrontDoorsOpen(Vehicle)}," +
+            //$" Air Speed is {Vehicle.Speed}," +
+            $" IsDriveable = {Vehicle.IsDriveable}," +
+            $" VoltLevel is {voltLevel}," +
+            //$" Engine Temperature is {Vehicle.EngineTemperature}," +
+            $" Engine Running is {Vehicle.IsEngineRunning}," +
+            $" Engine Starting is {Vehicle.IsEngineStarting}");
+            if (oilLevel <= 10)
+            {
+                oilIndicator.SpawnProp();
+            }
+            else
+            {
+                oilIndicator.Delete();
+            }
+#endif
         }
 
         public void Dispose(bool deleteVeh = true)
@@ -246,6 +280,7 @@ namespace BackToTheFutureV
             doorIndicator?.Dispose();
             //seatbeltIndicator?.Dispose();
             fuelIndicator?.Dispose();
+            oilIndicator?.Dispose();
             leftFan?.Dispose();
             rightFan?.Dispose();
 
