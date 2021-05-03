@@ -20,6 +20,7 @@ namespace BackToTheFutureV
         public PlateType Plate { get; set; } = PlateType.Empty;
         public ExhaustType Exhaust { get; set; } = ExhaustType.Stock;
         public ModState Hoodbox { get; set; } = ModState.Off;
+        public ModState LambdaType { get; set; } = ModState.Off;
         public HookState Hook { get; set; } = HookState.Off;
         public HoodType Hood { get; set; } = HoodType.Stock;
 
