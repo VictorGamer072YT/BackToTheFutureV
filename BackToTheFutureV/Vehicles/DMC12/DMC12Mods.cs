@@ -323,7 +323,7 @@ namespace BackToTheFutureV
                 base.LambdaType = value;
 
                 if (IsDMC12)
-                    Vehicle.Mods[VehicleModType.Windows].Index = (int)value; // VMT_INTERIOR_2 I think
+                    Vehicle.Mods[VehicleModType.Windows].Index = (int)value; // VMT_DOOR_L
             }
         }
     }
