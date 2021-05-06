@@ -2,8 +2,7 @@
 This is a fork of BTTFV, with debug features.
 Download it [**here**](https://ci.appveyor.com/api/projects/VictorGamer072YT/backtothefuturev/artifacts/BackToTheFutureV.zip)
 
-This version only supports the patreon build with Sierra.
-
+This version only supports the patreon build with Sierra,
 A build without Sierra will be released on the BTTFV discord.
 ## Requirements:
 - [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/thank-you/net48-web-installer)
