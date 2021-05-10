@@ -29,7 +29,16 @@ namespace BackToTheFutureV
         }
 
         public int LastRecordedIndex { get; private set; } = -1;
-        public WaybackRecord LastRecord => Records[LastRecordedIndex];
+        public WaybackRecord LastRecord
+        {
+            get
+            {
+                if (LastRecordedIndex < 0)
+                    return Records[0];
+
+                return Records[LastRecordedIndex];
+            }
+        }
 
         public int CurrentIndex { get; private set; } = 0;
         public WaybackRecord CurrentRecord => Records[CurrentIndex];
@@ -80,7 +89,8 @@ namespace BackToTheFutureV
             Ped = ped;
             WaitForReentry = waitForReentry;
 
-            StartTime = FusionUtils.CurrentTime;
+            CurrentIndex = 0;
+            Status = WaybackStatus.Playing;
         }
 
         public void Tick()
@@ -90,16 +100,7 @@ namespace BackToTheFutureV
                 case WaybackStatus.Idle:
                     if (FusionUtils.CurrentTime.Between(StartTime, EndTime))
                     {
-                        if (WaitForReentry)
-                        {
-                            if (TimeMachineHandler.GetTimeMachineFromReplicaGUID(GUID).Properties.TimeTravelPhase == TimeTravelPhase.Reentering)
-                                return;
-
-                            CurrentIndex = 0;
-                            WaitForReentry = false;
-                        }
-                        else
-                            CurrentIndex = Records.FindIndex(x => x.Time >= FusionUtils.CurrentTime);
+                        CurrentIndex = Records.FindIndex(x => x.Time >= FusionUtils.CurrentTime);
 
                         Status = WaybackStatus.Playing;
 
@@ -113,6 +114,14 @@ namespace BackToTheFutureV
                     Record();
                     break;
                 case WaybackStatus.Playing:
+                    if (WaitForReentry)
+                    {
+                        if (TimeMachineHandler.GetTimeMachineFromReplicaGUID(GUID).Properties.TimeTravelPhase == TimeTravelPhase.Reentering)
+                            return;
+
+                        WaitForReentry = false;
+                    }
+
                     Play();
                     break;
             }
@@ -167,7 +176,7 @@ namespace BackToTheFutureV
 
         public void Stop()
         {
-            if (Status == WaybackStatus.Recording)
+            if (Status == WaybackStatus.Recording && Records.Count > 0)
             {
                 StartTime = Records[0].Time;
                 EndTime = LastRecord.Time.AddMinutes(-1);
