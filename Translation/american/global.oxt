@@ -319,8 +319,7 @@
 	BTTFV_Text_Warmup = Press ~INPUT_CONTEXT~ to start time circuits control tubes warmup.
 	BTTFV_Text_WarmupComplete = Time circuits control tubes are warmed up.
 	BTTFV_Text_Years = years
-	BTTFV_Menu_Garage_Item_RepairTC_Title = Repair Time Circuits ($ 500)
-        BTTFV_Menu_DEBUG_Title = DEBUG SETTINGS
+    BTTFV_Menu_DEBUG_Title = DEBUG SETTINGS
 	BTTFV_Menu_Main_Item_DEBUG_Description = Special set of settings for developers.
 	BTTFV_Menu_Main_Item_DEBUG_Title = Debug Settings
 	BTTFV_Menu_DEBUG_Item_debugFuel_Title = Infinite Fuel
