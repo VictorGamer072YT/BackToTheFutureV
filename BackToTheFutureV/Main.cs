@@ -21,9 +21,9 @@ namespace BackToTheFutureV
         {
             DateTime buildDate = new DateTime(2000, 1, 1).AddDays(Version.Build).AddSeconds(Version.Revision * 2);
 
-            System.IO.File.AppendAllText($"./ScriptHookVDotNet.log", $"BackToTheFutureV - {Version} ({buildDate})" + Environment.NewLine);
+            System.IO.File.AppendAllText($"./ScriptHookVDotNet.log", $"BackToTheFutureV - {Version} ({buildDate}) DO NOT ASK FOR SUPPORT ON THE OFFICIAL DISCORD! UNOFFICIAL BUILD!" + Environment.NewLine);
 
-            GTA.UI.Screen.ShowSubtitle($"BackToTheFutureV - {Version} ({buildDate})");
+            GTA.UI.Screen.ShowSubtitle($"BackToTheFutureV - {Version} ({buildDate}) DO NOT ASK FOR SUPPORT ON THE OFFICIAL DISCORD! UNOFFICIAL BUILD!");
 
             ModSettings.LoadSettings();
 
